@@ -1,0 +1,41 @@
+@model IEnumerable<MusicDating.Models.Entities.Ensemble>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EnsembleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnsembleDescription)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnsembleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnsembleDescription)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.EnsembleId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.EnsembleId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.EnsembleId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

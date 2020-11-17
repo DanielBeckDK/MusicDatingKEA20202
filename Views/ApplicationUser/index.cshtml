@@ -1,0 +1,57 @@
+@model MusicDating.Models.ViewModels.UserInstrumentVm
+
+@{
+    ViewData["Title"] = "Musicians";
+}
+
+<h1>Musicians</h1>
+
+<form asp-controller="ApplicationUser" asp-action="Index" method="get">
+    
+
+        <select asp-for="instrumentName" asp-items="Model.Instruments">
+            <option value="">All</option>
+        </select>
+
+        
+        <input type="submit" value="Filter" />
+    
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].Instrument.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].Level)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].ApplicationUser.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].ApplicationUser.LastName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.User)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Instrument.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Level)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.LastName)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
