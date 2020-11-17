@@ -11,6 +11,7 @@ namespace MusicDating.Models.Entities
         [PersonalData]
         public string LastName { get; set; }
 
-         public ICollection<UserInstrument> UserInstruments { get; set; }
+        public ICollection<UserInstrument> UserInstruments { get; set; }
+        public ICollection<UserEnsemble> UserEnsembles { get; set; }
     }
 }
