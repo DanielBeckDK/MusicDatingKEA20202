@@ -1,30 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Daniel\\Desktop\\Onedrive\\Kea-Web-Dev\\dotNet\\Code\\MusicDatingKEA2020\\MusicDating.csproj": {}
+    "C:\\Users\\Søren Rembøll\\Desktop\\WebDev\\.NET\\.Net.code\\MusicDatingKEA20202\\MusicDating.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Daniel\\Desktop\\Onedrive\\Kea-Web-Dev\\dotNet\\Code\\MusicDatingKEA2020\\MusicDating.csproj": {
+    "C:\\Users\\Søren Rembøll\\Desktop\\WebDev\\.NET\\.Net.code\\MusicDatingKEA20202\\MusicDating.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Daniel\\Desktop\\Onedrive\\Kea-Web-Dev\\dotNet\\Code\\MusicDatingKEA2020\\MusicDating.csproj",
+        "projectUniqueName": "C:\\Users\\Søren Rembøll\\Desktop\\WebDev\\.NET\\.Net.code\\MusicDatingKEA20202\\MusicDating.csproj",
         "projectName": "MusicDating",
-        "projectPath": "C:\\Users\\Daniel\\Desktop\\Onedrive\\Kea-Web-Dev\\dotNet\\Code\\MusicDatingKEA2020\\MusicDating.csproj",
-        "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Daniel\\Desktop\\Onedrive\\Kea-Web-Dev\\dotNet\\Code\\MusicDatingKEA2020\\obj\\",
+        "projectPath": "C:\\Users\\Søren Rembøll\\Desktop\\WebDev\\.NET\\.Net.code\\MusicDatingKEA20202\\MusicDating.csproj",
+        "packagesPath": "C:\\Users\\Søren Rembøll\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Søren Rembøll\\Desktop\\WebDev\\.NET\\.Net.code\\MusicDatingKEA20202\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Daniel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Søren Rembøll\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

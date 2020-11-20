@@ -46,6 +46,17 @@ namespace MusicDating.Data
         .HasOne(bc => bc.Ensemble)
         .WithMany(c => c.UserEnsembles)
         .HasForeignKey(bc => bc.EnsembleId);
+        
+        modelBuilder.Entity<UserInstrumentGenre>()
+        .HasKey( bc=>bc.UserInstrumentGenreId);  
+        modelBuilder.Entity<UserInstrumentGenre>()
+        .HasOne(bc => bc.Genre)
+        .WithMany(b => b.UserInstrumentGenres)
+        .HasForeignKey(bc => bc.GenreId);  
+        modelBuilder.Entity<UserInstrumentGenre>()
+        .HasOne(bc => bc.UserInstrument)
+        .WithMany(c => c.UserInstrumentGenres)
+        .HasForeignKey(bc => new {bc.Id,bc.InstrumentId});
 
         modelBuilder.Entity<Genre>().HasData(
             new Genre {GenreId = 1,GenreName = "Metal"},
@@ -61,6 +72,13 @@ namespace MusicDating.Data
             new GenreEnsemble {GenreId = 1,EnsembleId = 1},
             new GenreEnsemble {GenreId = 2,EnsembleId = 2}
             );
+        
+        modelBuilder.Entity<UserInstrumentGenre>().HasData(
+            new UserInstrumentGenre {Id = "1", UserInstrumentGenreId = 1, GenreId = 2, InstrumentId = 2 },
+            new UserInstrumentGenre {Id = "2", UserInstrumentGenreId = 2, GenreId = 2, InstrumentId = 2 },
+            new UserInstrumentGenre {Id = "3", UserInstrumentGenreId = 3, GenreId = 1, InstrumentId = 1 }
+                );
+            
 
         modelBuilder.Entity<UserEnsemble>().HasData(
             new UserEnsemble {Id = "1",EnsembleId = 1},
@@ -96,6 +114,7 @@ namespace MusicDating.Data
         public DbSet<UserInstrument> UserInstrument { get; set; }
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
         public DbSet<UserEnsemble> UserEnsemble { get; set; }
+        public DbSet<UserInstrumentGenre> UserInstrumentGenre { get; set; }
 
 
         // This means that EF (Entity Framework) will create a table called Instrument based

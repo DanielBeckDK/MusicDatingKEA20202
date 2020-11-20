@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MusicDating.Migrations
 {
-    public partial class migration923222222323 : Migration
+    public partial class X1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -294,20 +294,47 @@ namespace MusicDating.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.InsertData(
-                table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "1", 0, "d8488172-91fd-4db5-9fc0-c014ccfc1f73", "soren.remboll@gmail.com", false, "Søren", "Rembøll", false, null, null, null, null, null, false, "204e1da7-7e2f-48b8-9eac-2c48329ab36c", false, "soren.remboll@gmail.com" });
+            migrationBuilder.CreateTable(
+                name: "UserInstrumentGenre",
+                columns: table => new
+                {
+                    UserInstrumentGenreId = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Id = table.Column<string>(nullable: false),
+                    InstrumentId = table.Column<int>(nullable: false),
+                    GenreId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserInstrumentGenre", x => x.UserInstrumentGenreId);
+                    table.ForeignKey(
+                        name: "FK_UserInstrumentGenre_Genres_GenreId",
+                        column: x => x.GenreId,
+                        principalTable: "Genres",
+                        principalColumn: "GenreId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserInstrumentGenre_UserInstrument_Id_InstrumentId",
+                        columns: x => new { x.Id, x.InstrumentId },
+                        principalTable: "UserInstrument",
+                        principalColumns: new[] { "Id", "InstrumentId" },
+                        onDelete: ReferentialAction.Cascade);
+                });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "2", 0, "c21cef39-9bbd-4958-8fc7-6dcb5a1a1187", null, false, "Daniel", "Beck", false, null, null, null, null, null, false, "48f54d7e-d2e3-486d-bb25-da2158d5a2b0", false, null });
+                values: new object[] { "1", 0, "040adeba-f2c8-4c0c-a219-c38915363359", "soren.remboll@gmail.com", false, "Søren", "Rembøll", false, null, null, null, null, null, false, "cb028299-a1ad-49ac-a4df-72d83146a8cb", false, "soren.remboll@gmail.com" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "3", 0, "f3db0111-0c12-4c35-b2a1-147dad36dbc3", null, false, "Christian", "Kirschberg", false, null, null, null, null, null, false, "107757dc-2753-4d5e-b108-28317071b891", false, null });
+                values: new object[] { "2", 0, "6d3fba4c-d003-4de7-bf92-07ae5b6700b5", null, false, "Daniel", "Beck", false, null, null, null, null, null, false, "35e6bf3e-2aa1-425d-bd14-98d28f9cfcf9", false, null });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "3", 0, "61af1f40-0fa9-49c7-8132-761bd2669225", null, false, "Christian", "Kirschberg", false, null, null, null, null, null, false, "740dfd82-fd7f-45ca-a89d-8b63869f41b1", false, null });
 
             migrationBuilder.InsertData(
                 table: "Ensembles",
@@ -374,6 +401,21 @@ namespace MusicDating.Migrations
                 columns: new[] { "Id", "InstrumentId", "Level" },
                 values: new object[] { "2", 2, 3 });
 
+            migrationBuilder.InsertData(
+                table: "UserInstrumentGenre",
+                columns: new[] { "UserInstrumentGenreId", "GenreId", "Id", "InstrumentId" },
+                values: new object[] { 3, 1, "3", 1 });
+
+            migrationBuilder.InsertData(
+                table: "UserInstrumentGenre",
+                columns: new[] { "UserInstrumentGenreId", "GenreId", "Id", "InstrumentId" },
+                values: new object[] { 1, 2, "1", 2 });
+
+            migrationBuilder.InsertData(
+                table: "UserInstrumentGenre",
+                columns: new[] { "UserInstrumentGenreId", "GenreId", "Id", "InstrumentId" },
+                values: new object[] { 2, 2, "2", 2 });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Agent_InstrumentId",
                 table: "Agent",
@@ -435,6 +477,16 @@ namespace MusicDating.Migrations
                 name: "IX_UserInstrument_InstrumentId",
                 table: "UserInstrument",
                 column: "InstrumentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserInstrumentGenre_GenreId",
+                table: "UserInstrumentGenre",
+                column: "GenreId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserInstrumentGenre_Id_InstrumentId",
+                table: "UserInstrumentGenre",
+                columns: new[] { "Id", "InstrumentId" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -464,22 +516,25 @@ namespace MusicDating.Migrations
                 name: "UserEnsemble");
 
             migrationBuilder.DropTable(
-                name: "UserInstrument");
+                name: "UserInstrumentGenre");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Genres");
-
-            migrationBuilder.DropTable(
                 name: "Ensembles");
 
             migrationBuilder.DropTable(
-                name: "Instruments");
+                name: "Genres");
+
+            migrationBuilder.DropTable(
+                name: "UserInstrument");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Instruments");
         }
     }
 }
