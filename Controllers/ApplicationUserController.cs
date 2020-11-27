@@ -26,7 +26,7 @@ namespace MusicDating.Controllers
                                     orderby m.GenreName
                                     select m.GenreName;
 
-            var users = from x in _context.ApplicationUser.Include(x => x.UserInstruments).Include(x=>x.Instruments).ThenInclude(x=>x.UserInstrumentGenres).ThenInclude(x=>x.Genre)
+            var users = from x in _context.ApplicationUser.Include(x => x.UserInstruments).ThenInclude(x=>x.UserInstrumentGenres).ThenInclude(x=>x.UserInstrument).Include(x=>x.Genre)
                         select x;   
 
     
