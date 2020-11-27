@@ -22,23 +22,30 @@ namespace MusicDating.Controllers
             IQueryable<string> qInstrumentList = from m in _context.Instruments
                                     orderby m.Name
                                     select m.Name;
-            IQueryable<string> qGenres = from m in _context.Genres
+            IQueryable<string> Genres = from m in _context.Genres
                                     orderby m.GenreName
                                     select m.GenreName;
 
-            var users = from x in _context.UserInstrument.Include(x => x.Instrument).Include(x=>x.ApplicationUser)
+            var users = from x in _context.ApplicationUser.Include(x => x.UserInstruments).Include(x=>x.Instruments).ThenInclude(x=>x.UserInstrumentGenres).ThenInclude(x=>x.Genre)
                         select x;   
 
     
 
-            if (!String.IsNullOrEmpty(instrumentName) || (!String.IsNullOrEmpty(genreName) )
+            if (!String.IsNullOrEmpty(instrumentName))
                 {
                     users = users.Where(s => s.Instrument.Name.Contains(instrumentName));
+                    
+                }
+            if (!String.IsNullOrEmpty(genreName))
+                {
+                    
+                    users = users.Where(s => s.Genre.GenreName.Contains(genreName));
                 }
 
             var userInstrumentVm = new UserInstrumentVm
             {
                 Instruments = new SelectList(await qInstrumentList.Distinct().ToListAsync()),
+                Genres = new SelectList(await Genres.Distinct().ToListAsync()),
                 User = await users.ToListAsync()
             };
 
