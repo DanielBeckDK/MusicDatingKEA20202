@@ -9,8 +9,8 @@ using MusicDating.Data;
 namespace MusicDating.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201120130608_X1")]
-    partial class X1
+    [Migration("20201127111554_migration1")]
+    partial class migration1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -239,14 +239,14 @@ namespace MusicDating.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "040adeba-f2c8-4c0c-a219-c38915363359",
+                            ConcurrencyStamp = "134d8ff3-3d07-4795-b5f1-a4ac993e3dc2",
                             Email = "soren.remboll@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Søren",
                             LastName = "Rembøll",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cb028299-a1ad-49ac-a4df-72d83146a8cb",
+                            SecurityStamp = "747a3da1-db3b-410a-ac44-0c628913e1ae",
                             TwoFactorEnabled = false,
                             UserName = "soren.remboll@gmail.com"
                         },
@@ -254,26 +254,65 @@ namespace MusicDating.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6d3fba4c-d003-4de7-bf92-07ae5b6700b5",
+                            ConcurrencyStamp = "4b84eef7-ca75-4a1f-8d4d-97c3ff0657d4",
                             EmailConfirmed = false,
                             FirstName = "Daniel",
                             LastName = "Beck",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "35e6bf3e-2aa1-425d-bd14-98d28f9cfcf9",
+                            SecurityStamp = "49645804-4d2c-4385-81ab-cf88111cd367",
                             TwoFactorEnabled = false
                         },
                         new
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "61af1f40-0fa9-49c7-8132-761bd2669225",
+                            ConcurrencyStamp = "8a489ffd-611d-4370-9acc-35a5f7b9ca1e",
                             EmailConfirmed = false,
                             FirstName = "Christian",
                             LastName = "Kirschberg",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "740dfd82-fd7f-45ca-a89d-8b63869f41b1",
+                            SecurityStamp = "14bf45ae-b949-44d2-bd71-e6275173c4f4",
+                            TwoFactorEnabled = false
+                        },
+                        new
+                        {
+                            Id = "4",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "3308c518-a991-4414-bbc7-835908f9cf6d",
+                            EmailConfirmed = false,
+                            FirstName = "Christian",
+                            LastName = "Kirschberg",
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "bad7cf6d-6d64-4b6b-8044-df9684bf2cf9",
+                            TwoFactorEnabled = false
+                        },
+                        new
+                        {
+                            Id = "5",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "3a3eb1c1-74f2-4218-85a9-b2d22b9b2fb7",
+                            EmailConfirmed = false,
+                            FirstName = "Christian",
+                            LastName = "Kirschberg",
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "0f88f8b4-afbe-403b-80db-b47449ed397f",
+                            TwoFactorEnabled = false
+                        },
+                        new
+                        {
+                            Id = "6",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "89810816-56fe-4870-a253-b5fcc3c18e3d",
+                            EmailConfirmed = false,
+                            FirstName = "Christian",
+                            LastName = "Kirschberg",
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "f5951cd5-3772-47cb-997b-fa224d868404",
                             TwoFactorEnabled = false
                         });
                 });
@@ -337,6 +376,21 @@ namespace MusicDating.Migrations
                         {
                             GenreId = 2,
                             GenreName = "Rock"
+                        },
+                        new
+                        {
+                            GenreId = 3,
+                            GenreName = "Classical"
+                        },
+                        new
+                        {
+                            GenreId = 4,
+                            GenreName = "Pop"
+                        },
+                        new
+                        {
+                            GenreId = 5,
+                            GenreName = "Funk"
                         });
                 });
 
@@ -391,6 +445,21 @@ namespace MusicDating.Migrations
                         {
                             InstrumentId = 2,
                             Name = "Piano"
+                        },
+                        new
+                        {
+                            InstrumentId = 3,
+                            Name = "Saxophone"
+                        },
+                        new
+                        {
+                            InstrumentId = 4,
+                            Name = "Drums"
+                        },
+                        new
+                        {
+                            InstrumentId = 5,
+                            Name = "Bass"
                         });
                 });
 
@@ -456,6 +525,18 @@ namespace MusicDating.Migrations
                             Id = "3",
                             InstrumentId = 1,
                             Level = 1
+                        },
+                        new
+                        {
+                            Id = "3",
+                            InstrumentId = 4,
+                            Level = 1
+                        },
+                        new
+                        {
+                            Id = "2",
+                            InstrumentId = 1,
+                            Level = 1
                         });
                 });
 
@@ -503,6 +584,20 @@ namespace MusicDating.Migrations
                             UserInstrumentGenreId = 3,
                             GenreId = 1,
                             Id = "3",
+                            InstrumentId = 1
+                        },
+                        new
+                        {
+                            UserInstrumentGenreId = 4,
+                            GenreId = 1,
+                            Id = "3",
+                            InstrumentId = 4
+                        },
+                        new
+                        {
+                            UserInstrumentGenreId = 5,
+                            GenreId = 1,
+                            Id = "2",
                             InstrumentId = 1
                         });
                 });
