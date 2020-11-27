@@ -14397,6 +14397,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Søren Rembøll\\Desktop\\WebDev\\.NET\\.Net.code\\MusicDatingKEA20202\\Areas\\Identity\\Pages\\Account\\Manage\\_ManageNav.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_ManageNav.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Søren Rembøll\\Desktop\\WebDev\\.NET\\.Net.code\\MusicDatingKEA20202\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
       "FileKind": "mvc"
@@ -14447,6 +14452,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Søren Rembøll\\Desktop\\WebDev\\.NET\\.Net.code\\MusicDatingKEA20202\\Areas\\Identity\\Pages\\Account\\Manage\\Ensemble.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Ensemble.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Søren Rembøll\\Desktop\\WebDev\\.NET\\.Net.code\\MusicDatingKEA20202\\Views\\Ensemble\\Create.cshtml",
       "TargetPath": "Views\\Ensemble\\Create.cshtml",
       "FileKind": "mvc"
@@ -14472,6 +14482,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Søren Rembøll\\Desktop\\WebDev\\.NET\\.Net.code\\MusicDatingKEA20202\\Areas\\Identity\\Pages\\Account\\Manage\\Instruments.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Instruments.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Søren Rembøll\\Desktop\\WebDev\\.NET\\.Net.code\\MusicDatingKEA20202\\Views\\Instruments\\Details.cshtml",
       "TargetPath": "Views\\Instruments\\Details.cshtml",
       "FileKind": "mvc"
@@ -14479,6 +14494,11 @@
     {
       "FilePath": "c:\\Users\\Søren Rembøll\\Desktop\\WebDev\\.NET\\.Net.code\\MusicDatingKEA20202\\Views\\Instruments\\Index.cshtml",
       "TargetPath": "Views\\Instruments\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Søren Rembøll\\Desktop\\WebDev\\.NET\\.Net.code\\MusicDatingKEA20202\\Areas\\Identity\\Pages\\Account\\Manage\\Email.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Email.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14504,6 +14524,11 @@
     {
       "FilePath": "c:\\Users\\Søren Rembøll\\Desktop\\WebDev\\.NET\\.Net.code\\MusicDatingKEA20202\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Søren Rembøll\\Desktop\\WebDev\\.NET\\.Net.code\\MusicDatingKEA20202\\Areas\\Identity\\Pages\\Account\\Manage\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14544,6 +14569,11 @@
     {
       "FilePath": "c:\\Users\\Søren Rembøll\\Desktop\\WebDev\\.NET\\.Net.code\\MusicDatingKEA20202\\Views\\Instruments\\Edit.cshtml",
       "TargetPath": "Views\\Instruments\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Søren Rembøll\\Desktop\\WebDev\\.NET\\.Net.code\\MusicDatingKEA20202\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
       "FileKind": "mvc"
     },
     {

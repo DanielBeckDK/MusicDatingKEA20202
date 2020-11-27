@@ -9,8 +9,8 @@ using MusicDating.Data;
 namespace MusicDating.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201127111554_migration1")]
-    partial class migration1
+    [Migration("20201127141232_X")]
+    partial class X
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -239,14 +239,15 @@ namespace MusicDating.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "134d8ff3-3d07-4795-b5f1-a4ac993e3dc2",
+                            ConcurrencyStamp = "91e1b004-648e-49ae-a008-6e4a4b04cc50",
                             Email = "soren.remboll@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Søren",
                             LastName = "Rembøll",
                             LockoutEnabled = false,
+                            PasswordHash = "AQAAAAEAACcQAAAAEAQRMwd9Rvjy74ilAtjF7BtFZTdAkgEH8kUpbd+i7b7R1pzbG3Tp/s2pHrhdMOiQxQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "747a3da1-db3b-410a-ac44-0c628913e1ae",
+                            SecurityStamp = "dca029be-043f-4483-b01a-961cfaf64c53",
                             TwoFactorEnabled = false,
                             UserName = "soren.remboll@gmail.com"
                         },
@@ -254,65 +255,65 @@ namespace MusicDating.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4b84eef7-ca75-4a1f-8d4d-97c3ff0657d4",
+                            ConcurrencyStamp = "407c86e8-3d54-4c26-86c3-a8a1053c2549",
                             EmailConfirmed = false,
                             FirstName = "Daniel",
                             LastName = "Beck",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "49645804-4d2c-4385-81ab-cf88111cd367",
+                            SecurityStamp = "2701cc4a-e19e-4e8c-bc25-a813e0bcd1a6",
                             TwoFactorEnabled = false
                         },
                         new
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8a489ffd-611d-4370-9acc-35a5f7b9ca1e",
+                            ConcurrencyStamp = "f8e2a806-de06-4565-8f4e-66838d25fcef",
                             EmailConfirmed = false,
                             FirstName = "Christian",
-                            LastName = "Kirschberg",
+                            LastName = "1",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "14bf45ae-b949-44d2-bd71-e6275173c4f4",
+                            SecurityStamp = "8ac6a484-f217-440a-8639-c1e82b1bed25",
                             TwoFactorEnabled = false
                         },
                         new
                         {
                             Id = "4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3308c518-a991-4414-bbc7-835908f9cf6d",
+                            ConcurrencyStamp = "a65e08d8-6b49-4cb5-9408-60cb0b02de28",
                             EmailConfirmed = false,
                             FirstName = "Christian",
-                            LastName = "Kirschberg",
+                            LastName = "2",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "bad7cf6d-6d64-4b6b-8044-df9684bf2cf9",
+                            SecurityStamp = "763c85f3-6ba0-49a0-8e53-69d8d61cfab7",
                             TwoFactorEnabled = false
                         },
                         new
                         {
                             Id = "5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3a3eb1c1-74f2-4218-85a9-b2d22b9b2fb7",
+                            ConcurrencyStamp = "0145d800-6d08-41bd-bf13-2eeba04132c2",
                             EmailConfirmed = false,
                             FirstName = "Christian",
-                            LastName = "Kirschberg",
+                            LastName = "3",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0f88f8b4-afbe-403b-80db-b47449ed397f",
+                            SecurityStamp = "7af1e70e-6463-460a-8ff7-133654fdc8a4",
                             TwoFactorEnabled = false
                         },
                         new
                         {
                             Id = "6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "89810816-56fe-4870-a253-b5fcc3c18e3d",
+                            ConcurrencyStamp = "127adb43-7925-4a9f-9092-85532b0cc645",
                             EmailConfirmed = false,
                             FirstName = "Christian",
-                            LastName = "Kirschberg",
+                            LastName = "4",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f5951cd5-3772-47cb-997b-fa224d868404",
+                            SecurityStamp = "1fc9d41f-8700-4e47-8747-b96c10605b74",
                             TwoFactorEnabled = false
                         });
                 });
@@ -582,14 +583,14 @@ namespace MusicDating.Migrations
                         new
                         {
                             UserInstrumentGenreId = 3,
-                            GenreId = 1,
+                            GenreId = 5,
                             Id = "3",
                             InstrumentId = 1
                         },
                         new
                         {
                             UserInstrumentGenreId = 4,
-                            GenreId = 1,
+                            GenreId = 5,
                             Id = "3",
                             InstrumentId = 4
                         },

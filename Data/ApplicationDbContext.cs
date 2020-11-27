@@ -93,6 +93,7 @@ namespace MusicDating.Data
                 new UserInstrument { Id = "3", InstrumentId = 1, Level = 1 },
                 new UserInstrument { Id = "3", InstrumentId = 4, Level = 1 },
                 new UserInstrument { Id = "2", InstrumentId = 1, Level = 1 }
+
                 );
 
             modelBuilder.Entity<UserEnsemble>().HasData(
@@ -109,7 +110,7 @@ namespace MusicDating.Data
                 );
 
             modelBuilder.Entity<ApplicationUser>().HasData(
-                new ApplicationUser { FirstName = "Søren", LastName = "Rembøll", Id = "1", Email = "soren.remboll@gmail.com", UserName = "soren.remboll@gmail.com" },
+                new ApplicationUser { FirstName = "Søren", LastName = "Rembøll", Id = "1", Email = "soren.remboll@gmail.com", UserName = "soren.remboll@gmail.com", PasswordHash = "AQAAAAEAACcQAAAAEAQRMwd9Rvjy74ilAtjF7BtFZTdAkgEH8kUpbd+i7b7R1pzbG3Tp/s2pHrhdMOiQxQ==" },
                 new ApplicationUser { FirstName = "Daniel", LastName = "Beck", Id = "2" },
                 new ApplicationUser { FirstName = "Christian", LastName = "1", Id = "3" },
                 new ApplicationUser { FirstName = "Christian", LastName = "2", Id = "4" },
