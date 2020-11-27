@@ -1,57 +1,58 @@
-@model MusicDating.Models.ViewModels.UserInstrumentVm
+@using MusicDating.Models.ViewModels;
+@model UserInstrumentVm
 
 @{
-    ViewData["Title"] = "Musicians";
+    ViewData["Title"] = "Index";
 }
 
-<h1>Musicians</h1>
+<div class="page-title">Find musiker</div>
 
-<form asp-controller="ApplicationUser" asp-action="Index" method="get">
-    
+@using (Html.BeginForm("Index", "ApplicationUser", FormMethod.Post))
+{ 
+<div class="form-group">
+    <select asp-for="InstrumentName" class ="form-control" asp-items="Model.Instruments" onchange="this.form.submit()">
+        <option value="">Select instrument</option>
+    </select>
+</div>
+<div class="form-group">
+    <select asp-for="GenreName" class ="form-control" asp-items="Model.Genres" onchange="this.form.submit()">
+        <option value="">Select genre</option>
+    </select>
+</div>
+}
 
-        <select asp-for="instrumentName" asp-items="Model.Instruments">
-            <option value="">All</option>
-        </select>
 
-        
-        <input type="submit" value="Filter" />
-    
-</form>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].Instrument.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].Level)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].ApplicationUser.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].ApplicationUser.LastName)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.User)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Instrument.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Level)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ApplicationUser.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ApplicationUser.LastName)
-                </td>
-            </tr>
+<div class="container pre-scrollable"> 
+    <div class="row">
+        @foreach (var item in Model.User) {
+        <div class="card col col-12 col-md-6">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <h5 class="card-title">
+                        @item.FirstName @item.LastName
+                    </h5>
+                    <a href="#" class="btn btn-secondary">Vis profil</a>
+                </div>
+                <div class="card-text">
+                    @foreach (var userInstrument in item.UserInstruments){
+                    <div class="d-flex justify-content-between">
+                        <h5 class="">@userInstrument.Instrument.Name</h5>
+                        <div class="">
+                            <div>
+                                <h6>Erfaring <span class="badge badge-primary">@userInstrument.Level</span></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        @foreach (var genre in userInstrument.UserInstrumentGenres)
+                        {
+                            <span class="badge badge-secondary">@genre.Genre.GenreName</span>
+                        }
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>           
         }
-    </tbody>
-</table>
+    </div>       
+</div>       
