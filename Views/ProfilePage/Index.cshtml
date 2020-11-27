@@ -1,9 +1,13 @@
 @model MusicDating.Models.Entities.ApplicationUser
+@using Microsoft.AspNetCore.Identity
+@using MusicDating.Models.Entities;
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
 @{
     ViewData["Title"] = "Hej";
 }
-
+<a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">View Data</a>
  @{
      <p>@Model.FirstName</p>
      <p>@Model</p>
