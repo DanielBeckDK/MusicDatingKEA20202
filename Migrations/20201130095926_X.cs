@@ -188,17 +188,17 @@ namespace MusicDating.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     EnsembleName = table.Column<string>(nullable: true),
                     EnsembleDescription = table.Column<string>(nullable: true),
-                    AdminUserId = table.Column<string>(nullable: true)
+                    Id = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Ensembles", x => x.EnsembleId);
                     table.ForeignKey(
-                        name: "FK_Ensembles_AspNetUsers_AdminUserId",
-                        column: x => x.AdminUserId,
+                        name: "FK_Ensembles_AspNetUsers_Id",
+                        column: x => x.Id,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -329,47 +329,27 @@ namespace MusicDating.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "2", 0, "315d8250-d37a-476f-a1cd-0c186bb6d166", null, false, "Daniel", "Beck", false, null, null, null, null, null, false, "a49b31c8-63ca-49cf-bd42-31790974226d", false, null });
+                values: new object[] { "2", 0, "0265f797-9c69-4e3b-8725-5120fa296de3", null, false, "Daniel", "Beck", false, null, null, null, null, null, false, "2566e794-74c4-4bca-a8f0-9f45e08ab8e2", false, null });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "3", 0, "e3ff250b-a7e7-4585-9ecf-7ad8cbd00660", null, false, "Christian", "1", false, null, null, null, null, null, false, "fb0ddceb-03be-472b-8e7a-da619cbedede", false, null });
+                values: new object[] { "3", 0, "c3cbcccb-0669-40ca-92b9-eb67b0dd0024", null, false, "Christian", "1", false, null, null, null, null, null, false, "687659bd-1972-4d12-8683-6de53c6d5136", false, null });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "4", 0, "41fe2ef9-f745-4966-a540-55fa1b6fb0a2", null, false, "Christian", "2", false, null, null, null, null, null, false, "197e3501-7ace-4230-a472-11328df6e307", false, null });
+                values: new object[] { "4", 0, "63d4f7f8-2467-4535-b3fd-55633c4867d8", null, false, "Christian", "2", false, null, null, null, null, null, false, "ae947cf3-fc75-4f6d-acd1-2519ff692083", false, null });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "5", 0, "4184ca98-34a2-4a74-a179-0c944fd5d6e8", null, false, "Christian", "3", false, null, null, null, null, null, false, "c1166255-1a2a-4347-a92f-be60d37cebfa", false, null });
+                values: new object[] { "5", 0, "3cbbf937-7ed2-4b58-8517-f935a86852dd", null, false, "Christian", "3", false, null, null, null, null, null, false, "5f34b858-a02e-4754-bae6-cb0d0810f6e8", false, null });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "6", 0, "f0e7bff6-4366-454a-b459-e03e8eecd22a", null, false, "Christian", "4", false, null, null, null, null, null, false, "89b8a81c-6e0c-4e14-a96f-98c38da6a104", false, null });
-
-            migrationBuilder.InsertData(
-                table: "Ensembles",
-                columns: new[] { "EnsembleId", "AdminUserId", "EnsembleDescription", "EnsembleName" },
-                values: new object[] { 1, null, " Vi er TV2 og vi laver dårlig musik", "TV2" });
-
-            migrationBuilder.InsertData(
-                table: "Ensembles",
-                columns: new[] { "EnsembleId", "AdminUserId", "EnsembleDescription", "EnsembleName" },
-                values: new object[] { 2, null, "Vi er DR1 og vi æder licens penge til frokost", "DR1" });
-
-            migrationBuilder.InsertData(
-                table: "Genres",
-                columns: new[] { "GenreId", "GenreName" },
-                values: new object[] { 5, "Funk" });
-
-            migrationBuilder.InsertData(
-                table: "Genres",
-                columns: new[] { "GenreId", "GenreName" },
-                values: new object[] { 4, "Pop" });
+                values: new object[] { "6", 0, "21966d64-118f-463d-94a5-2933d6e20c07", null, false, "Christian", "4", false, null, null, null, null, null, false, "b6c8880b-9abe-424d-8eb0-3da8dc5ab4a8", false, null });
 
             migrationBuilder.InsertData(
                 table: "Genres",
@@ -387,9 +367,14 @@ namespace MusicDating.Migrations
                 values: new object[] { 3, "Classical" });
 
             migrationBuilder.InsertData(
-                table: "Instruments",
-                columns: new[] { "InstrumentId", "Name" },
-                values: new object[] { 4, "Drums" });
+                table: "Genres",
+                columns: new[] { "GenreId", "GenreName" },
+                values: new object[] { 4, "Pop" });
+
+            migrationBuilder.InsertData(
+                table: "Genres",
+                columns: new[] { "GenreId", "GenreName" },
+                values: new object[] { 5, "Funk" });
 
             migrationBuilder.InsertData(
                 table: "Instruments",
@@ -409,27 +394,22 @@ namespace MusicDating.Migrations
             migrationBuilder.InsertData(
                 table: "Instruments",
                 columns: new[] { "InstrumentId", "Name" },
+                values: new object[] { 4, "Drums" });
+
+            migrationBuilder.InsertData(
+                table: "Instruments",
+                columns: new[] { "InstrumentId", "Name" },
                 values: new object[] { 5, "Bass" });
 
             migrationBuilder.InsertData(
-                table: "GenreEnsemble",
-                columns: new[] { "GenreId", "EnsembleId" },
-                values: new object[] { 1, 1 });
+                table: "Ensembles",
+                columns: new[] { "EnsembleId", "EnsembleDescription", "EnsembleName", "Id" },
+                values: new object[] { 1, " Vi er TV2 og vi laver dårlig musik", "TV2", "1" });
 
             migrationBuilder.InsertData(
-                table: "GenreEnsemble",
-                columns: new[] { "GenreId", "EnsembleId" },
-                values: new object[] { 2, 2 });
-
-            migrationBuilder.InsertData(
-                table: "UserEnsemble",
-                columns: new[] { "Id", "EnsembleId" },
-                values: new object[] { "1", 1 });
-
-            migrationBuilder.InsertData(
-                table: "UserEnsemble",
-                columns: new[] { "Id", "EnsembleId" },
-                values: new object[] { "2", 2 });
+                table: "Ensembles",
+                columns: new[] { "EnsembleId", "EnsembleDescription", "EnsembleName", "Id" },
+                values: new object[] { 2, "Vi er DR1 og vi æder licens penge til frokost", "DR1", "1" });
 
             migrationBuilder.InsertData(
                 table: "UserInstrument",
@@ -454,7 +434,32 @@ namespace MusicDating.Migrations
             migrationBuilder.InsertData(
                 table: "UserInstrument",
                 columns: new[] { "Id", "InstrumentId", "Level" },
+                values: new object[] { "1", 3, 5 });
+
+            migrationBuilder.InsertData(
+                table: "UserInstrument",
+                columns: new[] { "Id", "InstrumentId", "Level" },
                 values: new object[] { "3", 4, 1 });
+
+            migrationBuilder.InsertData(
+                table: "GenreEnsemble",
+                columns: new[] { "GenreId", "EnsembleId" },
+                values: new object[] { 1, 1 });
+
+            migrationBuilder.InsertData(
+                table: "GenreEnsemble",
+                columns: new[] { "GenreId", "EnsembleId" },
+                values: new object[] { 2, 2 });
+
+            migrationBuilder.InsertData(
+                table: "UserEnsemble",
+                columns: new[] { "Id", "EnsembleId" },
+                values: new object[] { "1", 1 });
+
+            migrationBuilder.InsertData(
+                table: "UserEnsemble",
+                columns: new[] { "Id", "EnsembleId" },
+                values: new object[] { "2", 2 });
 
             migrationBuilder.InsertData(
                 table: "UserInstrumentGenre",
@@ -474,7 +479,22 @@ namespace MusicDating.Migrations
             migrationBuilder.InsertData(
                 table: "UserInstrumentGenre",
                 columns: new[] { "UserInstrumentGenreId", "GenreId", "Id", "InstrumentId" },
+                values: new object[] { 6, 4, "1", 2 });
+
+            migrationBuilder.InsertData(
+                table: "UserInstrumentGenre",
+                columns: new[] { "UserInstrumentGenreId", "GenreId", "Id", "InstrumentId" },
                 values: new object[] { 2, 2, "2", 2 });
+
+            migrationBuilder.InsertData(
+                table: "UserInstrumentGenre",
+                columns: new[] { "UserInstrumentGenreId", "GenreId", "Id", "InstrumentId" },
+                values: new object[] { 7, 1, "1", 3 });
+
+            migrationBuilder.InsertData(
+                table: "UserInstrumentGenre",
+                columns: new[] { "UserInstrumentGenreId", "GenreId", "Id", "InstrumentId" },
+                values: new object[] { 8, 5, "1", 3 });
 
             migrationBuilder.InsertData(
                 table: "UserInstrumentGenre",
@@ -524,9 +544,9 @@ namespace MusicDating.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Ensembles_AdminUserId",
+                name: "IX_Ensembles_Id",
                 table: "Ensembles",
-                column: "AdminUserId");
+                column: "Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_GenreEnsemble_EnsembleId",

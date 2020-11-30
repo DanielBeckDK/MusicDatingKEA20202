@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MusicDating.Data;
 using MusicDating.Models.Entities;
+using MusicDating.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 
 namespace MusicDating.Controllers
@@ -32,12 +33,24 @@ namespace MusicDating.Controllers
             
             ApplicationUser applicationUser = await _userManager.GetUserAsync(User);
             //Logik der tilgår databasen og finder instrumenter der tilhører denne bruger
-            IQueryable<Instrument> qInstrumentList = from m in _context.UserInstrument
-                                                where m.Id == applicationUser.Id
-                                                select m.Instrument;
-
-            return View(qInstrumentList);
+            var user = from x in _context.ApplicationUser.Include(x => x.UserInstruments)
+                        .ThenInclude(y => y.Instrument).Include(x => x.UserInstruments)
+                        .ThenInclude(y => y.UserInstrumentGenres).ThenInclude(y => y.Genre)
+                        .Include(a => a.OwnedEnsembles) where x.Id == applicationUser.Id
+                        select x;
+        
+            var OURuser = await user.ToListAsync();
+            return View(OURuser);
         }
+        public async Task<IActionResult> AddInstrument(Instrument instrument){
+            
+            IQueryable<string> qInstrumentList = from m in _context.Instruments
+                                                 orderby m.Name
+                                                 select m.Name;
+            var returnInstruments = new SelectList(await qInstrumentList.Distinct().ToListAsync());
+            return View(returnInstruments);
+        }
+       
 
         // GET: Instruments/Details/5
         /*  public async Task<IActionResult> Details(int? id)

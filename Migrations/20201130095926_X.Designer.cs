@@ -9,7 +9,7 @@ using MusicDating.Data;
 namespace MusicDating.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201130073030_X")]
+    [Migration("20201130095926_X")]
     partial class X
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -257,65 +257,65 @@ namespace MusicDating.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "315d8250-d37a-476f-a1cd-0c186bb6d166",
+                            ConcurrencyStamp = "0265f797-9c69-4e3b-8725-5120fa296de3",
                             EmailConfirmed = false,
                             FirstName = "Daniel",
                             LastName = "Beck",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a49b31c8-63ca-49cf-bd42-31790974226d",
+                            SecurityStamp = "2566e794-74c4-4bca-a8f0-9f45e08ab8e2",
                             TwoFactorEnabled = false
                         },
                         new
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e3ff250b-a7e7-4585-9ecf-7ad8cbd00660",
+                            ConcurrencyStamp = "c3cbcccb-0669-40ca-92b9-eb67b0dd0024",
                             EmailConfirmed = false,
                             FirstName = "Christian",
                             LastName = "1",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "fb0ddceb-03be-472b-8e7a-da619cbedede",
+                            SecurityStamp = "687659bd-1972-4d12-8683-6de53c6d5136",
                             TwoFactorEnabled = false
                         },
                         new
                         {
                             Id = "4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "41fe2ef9-f745-4966-a540-55fa1b6fb0a2",
+                            ConcurrencyStamp = "63d4f7f8-2467-4535-b3fd-55633c4867d8",
                             EmailConfirmed = false,
                             FirstName = "Christian",
                             LastName = "2",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "197e3501-7ace-4230-a472-11328df6e307",
+                            SecurityStamp = "ae947cf3-fc75-4f6d-acd1-2519ff692083",
                             TwoFactorEnabled = false
                         },
                         new
                         {
                             Id = "5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4184ca98-34a2-4a74-a179-0c944fd5d6e8",
+                            ConcurrencyStamp = "3cbbf937-7ed2-4b58-8517-f935a86852dd",
                             EmailConfirmed = false,
                             FirstName = "Christian",
                             LastName = "3",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c1166255-1a2a-4347-a92f-be60d37cebfa",
+                            SecurityStamp = "5f34b858-a02e-4754-bae6-cb0d0810f6e8",
                             TwoFactorEnabled = false
                         },
                         new
                         {
                             Id = "6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f0e7bff6-4366-454a-b459-e03e8eecd22a",
+                            ConcurrencyStamp = "21966d64-118f-463d-94a5-2933d6e20c07",
                             EmailConfirmed = false,
                             FirstName = "Christian",
                             LastName = "4",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "89b8a81c-6e0c-4e14-a96f-98c38da6a104",
+                            SecurityStamp = "b6c8880b-9abe-424d-8eb0-3da8dc5ab4a8",
                             TwoFactorEnabled = false
                         });
                 });
@@ -326,18 +326,19 @@ namespace MusicDating.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("AdminUserId")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("EnsembleDescription")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("EnsembleName")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Id")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.HasKey("EnsembleId");
 
-                    b.HasIndex("AdminUserId");
+                    b.HasIndex("Id");
 
                     b.ToTable("Ensembles");
 
@@ -346,13 +347,15 @@ namespace MusicDating.Migrations
                         {
                             EnsembleId = 1,
                             EnsembleDescription = " Vi er TV2 og vi laver dårlig musik",
-                            EnsembleName = "TV2"
+                            EnsembleName = "TV2",
+                            Id = "1"
                         },
                         new
                         {
                             EnsembleId = 2,
                             EnsembleDescription = "Vi er DR1 og vi æder licens penge til frokost",
-                            EnsembleName = "DR1"
+                            EnsembleName = "DR1",
+                            Id = "1"
                         });
                 });
 
@@ -525,6 +528,12 @@ namespace MusicDating.Migrations
                         },
                         new
                         {
+                            Id = "1",
+                            InstrumentId = 3,
+                            Level = 5
+                        },
+                        new
+                        {
                             Id = "3",
                             InstrumentId = 1,
                             Level = 1
@@ -574,6 +583,27 @@ namespace MusicDating.Migrations
                             GenreId = 2,
                             Id = "1",
                             InstrumentId = 2
+                        },
+                        new
+                        {
+                            UserInstrumentGenreId = 6,
+                            GenreId = 4,
+                            Id = "1",
+                            InstrumentId = 2
+                        },
+                        new
+                        {
+                            UserInstrumentGenreId = 7,
+                            GenreId = 1,
+                            Id = "1",
+                            InstrumentId = 3
+                        },
+                        new
+                        {
+                            UserInstrumentGenreId = 8,
+                            GenreId = 5,
+                            Id = "1",
+                            InstrumentId = 3
                         },
                         new
                         {
@@ -668,8 +698,10 @@ namespace MusicDating.Migrations
             modelBuilder.Entity("MusicDating.Models.Entities.Ensemble", b =>
                 {
                     b.HasOne("MusicDating.Models.Entities.ApplicationUser", "AdminUser")
-                        .WithMany()
-                        .HasForeignKey("AdminUserId");
+                        .WithMany("OwnedEnsembles")
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("MusicDating.Models.Entities.GenreEnsemble", b =>

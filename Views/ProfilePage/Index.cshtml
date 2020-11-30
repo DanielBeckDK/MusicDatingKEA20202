@@ -1,15 +1,36 @@
-@model IEnumerable<MusicDating.Models.Entities.Instrument>
+@model IEnumerable<MusicDating.Models.Entities.ApplicationUser>
 
 @using Microsoft.AspNetCore.Identity
 @using MusicDating.Models.Entities;
 
 
 @{
-    ViewData["Title"] = "Hej";
+    ViewData["Title"] = "Profile Page";
 }
 <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">View Data</a>
-@foreach (var item in Model) {
+<a asp-action="AddInstrument">Add a new Instrument to Profile!</a>
+ @foreach (var item in Model) {
  <div>
-     <p>@item.Name</p>
+     <p>@item.FirstName</p>
+     @foreach (var Ensemble in item.OwnedEnsembles)
+     {
+         <p>@Ensemble.EnsembleName</p>
+     }
+     @foreach (var Instrument in item.UserInstruments)
+     {
+         <div>
+             <p> Instrument Name: @Instrument.Instrument.Name (@Instrument.Level)</p>
+             <div id="genreBox">
+                 <p>
+                @foreach (var G in Instrument.UserInstrumentGenres)
+                    {
+                        <span>@G.Genre.GenreName, </span>
+                    }
+                    </p>
+             </div>
+             
+         </div>
+         
+     }
  </div>
-}
+} 

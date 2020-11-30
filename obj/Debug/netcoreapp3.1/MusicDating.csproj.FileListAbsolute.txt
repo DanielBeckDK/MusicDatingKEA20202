@@ -220,3 +220,4 @@ C:\Users\Søren Rembøll\Desktop\WebDev\.NET\.Net.code\MusicDatingKEA20202\obj\D
 C:\Users\Søren Rembøll\Desktop\WebDev\.NET\.Net.code\MusicDatingKEA20202\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Ensemble.cshtml.g.cs
 C:\Users\Søren Rembøll\Desktop\WebDev\.NET\.Net.code\MusicDatingKEA20202\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Instruments.cshtml.g.cs
 C:\Users\Søren Rembøll\Desktop\WebDev\.NET\.Net.code\MusicDatingKEA20202\bin\Debug\netcoreapp3.1\app.db
+C:\Users\Søren Rembøll\Desktop\WebDev\.NET\.Net.code\MusicDatingKEA20202\obj\Debug\netcoreapp3.1\Razor\Views\ProfilePage\AddInstrument.cshtml.g.cs

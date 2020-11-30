@@ -61,6 +61,8 @@ namespace MusicDating.Data
             .WithMany(c => c.UserInstrumentGenres)
             .HasForeignKey(bc => new { bc.Id, bc.InstrumentId });
 
+            
+
             modelBuilder.Entity<Genre>().HasData(
                 new Genre { GenreId = 1, GenreName = "Metal" },
                 new Genre { GenreId = 2, GenreName = "Rock" },
@@ -70,8 +72,8 @@ namespace MusicDating.Data
                 );
 
             modelBuilder.Entity<Ensemble>().HasData(
-                new Ensemble { EnsembleId = 1, EnsembleName = "TV2", EnsembleDescription = " Vi er TV2 og vi laver dårlig musik" },
-                new Ensemble { EnsembleId = 2, EnsembleName = "DR1", EnsembleDescription = "Vi er DR1 og vi æder licens penge til frokost" }
+                new Ensemble { EnsembleId = 1, EnsembleName = "TV2", EnsembleDescription = " Vi er TV2 og vi laver dårlig musik", Id="1" },
+                new Ensemble { EnsembleId = 2, EnsembleName = "DR1", EnsembleDescription = "Vi er DR1 og vi æder licens penge til frokost",Id = "1"}
                 );
 
             modelBuilder.Entity<GenreEnsemble>().HasData(
@@ -81,6 +83,9 @@ namespace MusicDating.Data
 
             modelBuilder.Entity<UserInstrumentGenre>().HasData(
                 new UserInstrumentGenre { Id = "1", UserInstrumentGenreId = 1, GenreId = 2, InstrumentId = 2 },
+                new UserInstrumentGenre { Id = "1", UserInstrumentGenreId = 6, GenreId = 4, InstrumentId = 2 },
+                new UserInstrumentGenre { Id = "1", UserInstrumentGenreId = 7, GenreId = 1, InstrumentId = 3 },
+                new UserInstrumentGenre { Id = "1", UserInstrumentGenreId = 8, GenreId = 5, InstrumentId = 3 },
                 new UserInstrumentGenre { Id = "2", UserInstrumentGenreId = 2, GenreId = 2, InstrumentId = 2 },
                 new UserInstrumentGenre { Id = "3", UserInstrumentGenreId = 3, GenreId = 5, InstrumentId = 1 },
                 new UserInstrumentGenre { Id = "3", UserInstrumentGenreId = 4, GenreId = 5, InstrumentId = 4 },
@@ -90,6 +95,7 @@ namespace MusicDating.Data
             modelBuilder.Entity<UserInstrument>().HasData(
                 new UserInstrument { Id = "1", InstrumentId = 2, Level = 5 },
                 new UserInstrument { Id = "2", InstrumentId = 2, Level = 3 },
+                new UserInstrument { Id = "1", InstrumentId = 3, Level = 5 },
                 new UserInstrument { Id = "3", InstrumentId = 1, Level = 1 },
                 new UserInstrument { Id = "3", InstrumentId = 4, Level = 1 },
                 new UserInstrument { Id = "2", InstrumentId = 1, Level = 1 }

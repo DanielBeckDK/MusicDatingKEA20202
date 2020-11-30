@@ -13,5 +13,6 @@ namespace MusicDating.Models.Entities
 
         public ICollection<UserInstrument> UserInstruments { get; set; }
         public ICollection<UserEnsemble> UserEnsembles { get; set; }
+        public ICollection<Ensemble> OwnedEnsembles { get; set; }
     }
 }
