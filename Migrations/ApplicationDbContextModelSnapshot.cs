@@ -237,15 +237,17 @@ namespace MusicDating.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "91e1b004-648e-49ae-a008-6e4a4b04cc50",
+                            ConcurrencyStamp = "4d59b7fb-3f9f-472d-b6c0-717778fad328",
                             Email = "soren.remboll@gmail.com",
-                            EmailConfirmed = false,
+                            EmailConfirmed = true,
                             FirstName = "Søren",
                             LastName = "Rembøll",
                             LockoutEnabled = false,
+                            NormalizedEmail = "SOREN.REMBOLL@GMAIL.COM",
+                            NormalizedUserName = "SOREN.REMBOLL@GMAIL.COM",
                             PasswordHash = "AQAAAAEAACcQAAAAEAQRMwd9Rvjy74ilAtjF7BtFZTdAkgEH8kUpbd+i7b7R1pzbG3Tp/s2pHrhdMOiQxQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "dca029be-043f-4483-b01a-961cfaf64c53",
+                            SecurityStamp = "B2S2KXH5MOD6SXMBIAKCLQBQE7DBJLWY",
                             TwoFactorEnabled = false,
                             UserName = "soren.remboll@gmail.com"
                         },
@@ -253,65 +255,65 @@ namespace MusicDating.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "407c86e8-3d54-4c26-86c3-a8a1053c2549",
+                            ConcurrencyStamp = "315d8250-d37a-476f-a1cd-0c186bb6d166",
                             EmailConfirmed = false,
                             FirstName = "Daniel",
                             LastName = "Beck",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2701cc4a-e19e-4e8c-bc25-a813e0bcd1a6",
+                            SecurityStamp = "a49b31c8-63ca-49cf-bd42-31790974226d",
                             TwoFactorEnabled = false
                         },
                         new
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f8e2a806-de06-4565-8f4e-66838d25fcef",
+                            ConcurrencyStamp = "e3ff250b-a7e7-4585-9ecf-7ad8cbd00660",
                             EmailConfirmed = false,
                             FirstName = "Christian",
                             LastName = "1",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8ac6a484-f217-440a-8639-c1e82b1bed25",
+                            SecurityStamp = "fb0ddceb-03be-472b-8e7a-da619cbedede",
                             TwoFactorEnabled = false
                         },
                         new
                         {
                             Id = "4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a65e08d8-6b49-4cb5-9408-60cb0b02de28",
+                            ConcurrencyStamp = "41fe2ef9-f745-4966-a540-55fa1b6fb0a2",
                             EmailConfirmed = false,
                             FirstName = "Christian",
                             LastName = "2",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "763c85f3-6ba0-49a0-8e53-69d8d61cfab7",
+                            SecurityStamp = "197e3501-7ace-4230-a472-11328df6e307",
                             TwoFactorEnabled = false
                         },
                         new
                         {
                             Id = "5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0145d800-6d08-41bd-bf13-2eeba04132c2",
+                            ConcurrencyStamp = "4184ca98-34a2-4a74-a179-0c944fd5d6e8",
                             EmailConfirmed = false,
                             FirstName = "Christian",
                             LastName = "3",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7af1e70e-6463-460a-8ff7-133654fdc8a4",
+                            SecurityStamp = "c1166255-1a2a-4347-a92f-be60d37cebfa",
                             TwoFactorEnabled = false
                         },
                         new
                         {
                             Id = "6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "127adb43-7925-4a9f-9092-85532b0cc645",
+                            ConcurrencyStamp = "f0e7bff6-4366-454a-b459-e03e8eecd22a",
                             EmailConfirmed = false,
                             FirstName = "Christian",
                             LastName = "4",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1fc9d41f-8700-4e47-8747-b96c10605b74",
+                            SecurityStamp = "89b8a81c-6e0c-4e14-a96f-98c38da6a104",
                             TwoFactorEnabled = false
                         });
                 });

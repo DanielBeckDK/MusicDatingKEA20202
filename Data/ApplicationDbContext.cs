@@ -110,7 +110,7 @@ namespace MusicDating.Data
                 );
 
             modelBuilder.Entity<ApplicationUser>().HasData(
-                new ApplicationUser { FirstName = "Søren", LastName = "Rembøll", Id = "1", Email = "soren.remboll@gmail.com", UserName = "soren.remboll@gmail.com", PasswordHash = "AQAAAAEAACcQAAAAEAQRMwd9Rvjy74ilAtjF7BtFZTdAkgEH8kUpbd+i7b7R1pzbG3Tp/s2pHrhdMOiQxQ==" },
+                new ApplicationUser { FirstName = "Søren", LastName = "Rembøll", Id = "1", Email = "soren.remboll@gmail.com", UserName = "soren.remboll@gmail.com", PasswordHash = "AQAAAAEAACcQAAAAEAQRMwd9Rvjy74ilAtjF7BtFZTdAkgEH8kUpbd+i7b7R1pzbG3Tp/s2pHrhdMOiQxQ==", NormalizedUserName = "SOREN.REMBOLL@GMAIL.COM", NormalizedEmail = "SOREN.REMBOLL@GMAIL.COM", EmailConfirmed = true, SecurityStamp = "B2S2KXH5MOD6SXMBIAKCLQBQE7DBJLWY", ConcurrencyStamp = "4d59b7fb-3f9f-472d-b6c0-717778fad328", },
                 new ApplicationUser { FirstName = "Daniel", LastName = "Beck", Id = "2" },
                 new ApplicationUser { FirstName = "Christian", LastName = "1", Id = "3" },
                 new ApplicationUser { FirstName = "Christian", LastName = "2", Id = "4" },
