@@ -42,16 +42,46 @@ namespace MusicDating.Controllers
             var OURuser = await user.ToListAsync();
             return View(OURuser);
         }
-        public async Task<IActionResult> AddInstrument(Instrument instrument){
-            
-            IQueryable<string> qInstrumentList = from m in _context.Instruments
+        public async Task<IActionResult> AddInstrument(){
+            ApplicationUser applicationUser = await _userManager.GetUserAsync(User);
+            /* IQueryable<Instrument> qInstrumentList = from m in _context.Instruments
                                                  orderby m.Name
-                                                 select m.Name;
-            var returnInstruments = new SelectList(await qInstrumentList.Distinct().ToListAsync());
-            return View(returnInstruments);
+                                                 select m; */
+            /* var returnInstruments = new SelectList(await _context.Instruments.ToListAsync()); */
+            var AddInstrumentProfilePageVm = new AddInstrumentProfilePageVm()
+            {
+                ApplicationUser = applicationUser,
+                Genres = new SelectList(_context.Genres, "GenreId", "GenreName"),
+                Instruments = new SelectList(_context.Instruments, "InstrumentId", "Name")
+                
+        };
+            return View(AddInstrumentProfilePageVm);
         }
-       
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddInstrument(int level, IEnumerable<int> genres, int instrument)
+        {
+            ApplicationUser applicationUser = await _userManager.GetUserAsync(User);
+            UserInstrument userInstrument = new UserInstrument();
+            userInstrument.Id = applicationUser.Id;
+            userInstrument.InstrumentId = instrument;
+            userInstrument.Level = level;
+            _context.Add(userInstrument);
+            foreach (var item in genres)
+            {
+                UserInstrumentGenre userInstrumentGenre = new UserInstrumentGenre();
+                userInstrumentGenre.Id = applicationUser.Id;
+                userInstrumentGenre.GenreId = item;
+                userInstrumentGenre.InstrumentId = instrument;
+                _context.Add(userInstrumentGenre);
+            }
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> CreateEnsemble()
+        {
+            return View();
+        }
         // GET: Instruments/Details/5
         /*  public async Task<IActionResult> Details(int? id)
          {
@@ -79,18 +109,7 @@ namespace MusicDating.Controllers
         // POST: Instruments/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("InstrumentId,Name")] Instrument instrument)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(instrument);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(instrument);
-        }
+       
 
         // GET: Instruments/Edit/5
         public async Task<IActionResult> Edit(int? id)

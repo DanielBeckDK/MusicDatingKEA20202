@@ -6,7 +6,6 @@ namespace MusicDating.Models.ViewModels {
     public class ProfilePageVm {
        
         public IEnumerable<UserInstrument> UserInstruments { get; set; }
-   
         public ApplicationUser ApplicationUser { get; set; }
         public IEnumerable<UserEnsemble> UserEnsembles { get; set; }
     }
