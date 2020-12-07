@@ -4,10 +4,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using MusicDating.Models.Entities;
 
 namespace MusicDating.Models.ViewModels {
-    public class CreateEnsembleVm {
+    public class EditEnsembleVm {
     public SelectList Genres { get; set; }
-    public Genre Genre { get; set; }
-    public string EnsembleName { get; set; }
-    public string EnsembleDescription { get; set; }
+    public Ensemble Ensemble { get; set; }
+    public List<int> genreIDs { get; set; }
     }
 }

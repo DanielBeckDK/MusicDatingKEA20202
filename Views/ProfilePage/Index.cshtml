@@ -16,6 +16,8 @@
      @foreach (var Ensemble in item.OwnedEnsembles)
      {
          <p>@Ensemble.EnsembleName</p>
+         <p>@Ensemble.EnsembleDescription</p>
+         <a asp-action="EditEnsemble" asp-route-id="@Ensemble.EnsembleId">Edit</a>
      }
      @foreach (var Instrument in item.UserInstruments)
      {

@@ -1,5 +1,5 @@
 @using System.Collections.Generic
-@model MusicDating.Models.ViewModels.AddInstrumentProfilePageVm;
+@model MusicDating.Models.ViewModels.CreateEnsembleVm;
 
 @{
     ViewData["Title"] = "Create";
@@ -9,35 +9,35 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="AddInstrument">
+        <form asp-action="CreateEnsemble">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
+            @Html.ValidationMessage("Unique")
                 <div class="form-group">
-                    <select asp-for="Instrument" class ="form-control" asp-items="Model.Instruments" required>
-                        <option value="">Select instrument</option>
-                    </select> 
+                    <label asp-for="EnsembleName" class="control-label"></label>
+                    <input asp-for="EnsembleName" class="form-control" required />
                 </div>
+                <div class="form-group">
+                    <label asp-for="EnsembleDescription" class="control-label"></label>
+                    <textarea asp-for="EnsembleDescription" class="form-control" ></textarea>
+                </div>
+
                 
         
+            @Html.ValidationMessage("Checkbox")
             @foreach (var item in Model.Genres)
             {
-                <div class="checkbox">
+                <div class="form-group" >
                     <label>
                         <input type="checkbox"
                                name="Genres"
                                value="@item.Value"
-                               required
+                               
                                /> @item.Text
                         </label>
-                    </div>
+                </div>
             }
-            <div class="form-group">
-                <label asp-for="Level" class="control-label"></label>
-                <input asp-for="Level" class="form-control" />
-                <span asp-validation-for="Level" class="text-danger"></span>
-            </div>
-        
-                <div class="form-group">
+            
+                   <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>

@@ -1,0 +1,68 @@
+@using System.Collections.Generic
+@model MusicDating.Models.ViewModels.EditEnsembleVm;
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditEnsemble">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Ensemble.EnsembleId" />
+            @Html.ValidationMessage("Unique")
+                <div class="form-group">
+                    <label asp-for="Ensemble.EnsembleName" class="control-label"></label>
+                    <input asp-for="Ensemble.EnsembleName" class="form-control" required value="@Model.Ensemble.EnsembleName"/>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Ensemble.EnsembleDescription" class="control-label"></label>
+                    <textarea asp-for="Ensemble.EnsembleDescription" class="form-control">@Model.Ensemble.EnsembleDescription</textarea>
+                </div>
+
+                
+        
+            @Html.ValidationMessage("Checkbox")
+            @foreach (var item in Model.Genres)
+            {
+                
+                if(Model.genreIDs.Contains(Int32.Parse(item.Value))){
+                    <div class="form-group" >
+                    <label>
+                        <input type="checkbox"
+                               name="Genres"
+                               value="@item.Value"
+                               checked
+                               /> @item.Text
+                        </label>
+                </div>
+                }else{
+                    <div class="form-group" >
+                    <label>
+                        <input type="checkbox"
+                               name="Genres"
+                               value="@item.Value"
+                               
+                               /> @item.Text
+                        </label>
+                </div>
+                }
+                
+            }
+            
+                   <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

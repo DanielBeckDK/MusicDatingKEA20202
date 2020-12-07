@@ -14457,6 +14457,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Søren Rembøll\\Desktop\\WebDev\\.NET\\.Net.code\\MusicDatingKEA20202\\Views\\ProfilePage\\EditEnsemble.cshtml",
+      "TargetPath": "Views\\ProfilePage\\EditEnsemble.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Søren Rembøll\\Desktop\\WebDev\\.NET\\.Net.code\\MusicDatingKEA20202\\Areas\\Identity\\Pages\\Account\\Manage\\Ensemble.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Ensemble.cshtml",
       "FileKind": "mvc"

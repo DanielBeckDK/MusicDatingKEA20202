@@ -9,7 +9,7 @@ using MusicDating.Data;
 namespace MusicDating.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201130095926_X")]
+    [Migration("20201207103827_X")]
     partial class X
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -257,65 +257,65 @@ namespace MusicDating.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0265f797-9c69-4e3b-8725-5120fa296de3",
+                            ConcurrencyStamp = "2bb064dc-c8bd-4750-be78-73bfa8815aba",
                             EmailConfirmed = false,
                             FirstName = "Daniel",
                             LastName = "Beck",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2566e794-74c4-4bca-a8f0-9f45e08ab8e2",
+                            SecurityStamp = "8e275e23-b28b-41a0-b6c7-710b70fe5f9a",
                             TwoFactorEnabled = false
                         },
                         new
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c3cbcccb-0669-40ca-92b9-eb67b0dd0024",
+                            ConcurrencyStamp = "030b11b4-15cd-4f96-bf97-a77c1daf4200",
                             EmailConfirmed = false,
                             FirstName = "Christian",
                             LastName = "1",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "687659bd-1972-4d12-8683-6de53c6d5136",
+                            SecurityStamp = "0a434ece-1dad-4d0d-8f0d-0f09c9a90222",
                             TwoFactorEnabled = false
                         },
                         new
                         {
                             Id = "4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "63d4f7f8-2467-4535-b3fd-55633c4867d8",
+                            ConcurrencyStamp = "9a507fc3-a93d-489a-be0f-07e28b663067",
                             EmailConfirmed = false,
                             FirstName = "Christian",
                             LastName = "2",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ae947cf3-fc75-4f6d-acd1-2519ff692083",
+                            SecurityStamp = "e87294cb-a22b-4767-a64f-a6dd5af29a90",
                             TwoFactorEnabled = false
                         },
                         new
                         {
                             Id = "5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3cbbf937-7ed2-4b58-8517-f935a86852dd",
+                            ConcurrencyStamp = "349b8ef5-c4c5-475d-92fc-fa750966286b",
                             EmailConfirmed = false,
                             FirstName = "Christian",
                             LastName = "3",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5f34b858-a02e-4754-bae6-cb0d0810f6e8",
+                            SecurityStamp = "81e691ad-db17-4e99-ae6d-0c8f4fc76e7b",
                             TwoFactorEnabled = false
                         },
                         new
                         {
                             Id = "6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "21966d64-118f-463d-94a5-2933d6e20c07",
+                            ConcurrencyStamp = "cc24c552-7abd-46c2-8198-8546c65f3c66",
                             EmailConfirmed = false,
                             FirstName = "Christian",
                             LastName = "4",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b6c8880b-9abe-424d-8eb0-3da8dc5ab4a8",
+                            SecurityStamp = "07250f3e-8908-45a1-abf1-7d421abb8b76",
                             TwoFactorEnabled = false
                         });
                 });
@@ -337,6 +337,9 @@ namespace MusicDating.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("EnsembleId");
+
+                    b.HasIndex("EnsembleName")
+                        .IsUnique();
 
                     b.HasIndex("Id");
 

@@ -61,6 +61,7 @@ namespace MusicDating.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddInstrument(int level, IEnumerable<int> genres, int instrument)
         {
+           
             ApplicationUser applicationUser = await _userManager.GetUserAsync(User);
             UserInstrument userInstrument = new UserInstrument();
             userInstrument.Id = applicationUser.Id;
@@ -80,26 +81,119 @@ namespace MusicDating.Controllers
         }
         public async Task<IActionResult> CreateEnsemble()
         {
-            return View();
+            
+            ApplicationUser applicationUser = await _userManager.GetUserAsync(User);
+            var createEnsembleVm = new CreateEnsembleVm()
+            {
+                Genres = new SelectList(_context.Genres, "GenreId", "GenreName")
+            };
+
+            return View(createEnsembleVm);
         }
-        // GET: Instruments/Details/5
-        /*  public async Task<IActionResult> Details(int? id)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateEnsemble(IEnumerable<int> genres, string EnsembleName, string EnsembleDescription)
+        {
+            if(!genres.Any()){
+                ModelState.AddModelError("Checkbox", "No Genres associated!");
+                //return RedirectToAction(nameof(CreateEnsemble));
+                    var createEnsembleVm = new CreateEnsembleVm()
+                    {
+                        Genres = new SelectList(_context.Genres, "GenreId", "GenreName")
+                    };
+                    return View(createEnsembleVm);
+            }
+            
+            ApplicationUser applicationUser = await _userManager.GetUserAsync(User);
+            Ensemble ensemble = new Ensemble();
+            ensemble.Id = applicationUser.Id;
+            ensemble.EnsembleName = EnsembleName;
+            ensemble.EnsembleDescription = EnsembleDescription;
+            _context.Add(ensemble);
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (System.Exception)
+            {
+                ModelState.AddModelError("Unique", "Ensemble already exist with this name!");
+                var createEnsembleVm = new CreateEnsembleVm()
+                    {
+                        Genres = new SelectList(_context.Genres, "GenreId", "GenreName")
+                    };
+                return View(createEnsembleVm);
+            }
+            
+            foreach (var item in genres)
+            {
+                GenreEnsemble genreEnsemble = new GenreEnsemble();
+                genreEnsemble.GenreId = item;
+                genreEnsemble.EnsembleId = ensemble.EnsembleId;
+                _context.Add(genreEnsemble);
+            }
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        
+        public async Task<IActionResult> EditEnsemble(int? id)
          {
              if (id == null)
              {
                  return NotFound();
              }
 
-             var instrument = await _context.Instruments
-                 .FirstOrDefaultAsync(m => m.InstrumentId == id);
-             if (instrument == null)
+            var ensemble = await _context.Ensembles
+                 .FirstOrDefaultAsync(m => m.EnsembleId == id);
+            IQueryable<int> qGenreEnsemblesId = from m in _context.GenreEnsemble
+                                                where m.EnsembleId == id
+                                                select m.GenreId;
+
+            var editEnsemblevm = new EditEnsembleVm()
+            {
+                Genres = new SelectList(_context.Genres, "GenreId", "GenreName"),
+                genreIDs = await qGenreEnsemblesId.ToListAsync(),
+                Ensemble = ensemble
+            };
+
+            if (ensemble == null)
              {
                  return NotFound();
              }
 
-             return View(instrument);
-         } */
+             return View(editEnsemblevm);
+         } 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditEnsemble(int id,IEnumerable<int> genres, string EnsembleName, string EnsembleDescription)
+        {
+            Ensemble ensemble = new Ensemble();
+            
+            ensemble.EnsembleName = EnsembleName;
+            ensemble.EnsembleDescription = EnsembleDescription;
+            _context.Update(ensemble);
 
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(instrument);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!InstrumentExists(instrument.InstrumentId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(instrument);
+        }
         // GET: Instruments/Create
         /* public IActionResult Create()
         {

@@ -8,6 +8,7 @@ namespace MusicDating.Models.Entities
     {
         [Key]
         public int EnsembleId { get; set; }
+       
         public string EnsembleName { get; set; }
         public string EnsembleDescription { get; set; }
         public string Id { get; set; }
