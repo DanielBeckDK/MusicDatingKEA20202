@@ -22,27 +22,29 @@ namespace MusicDating.Controllers
         public ProfilePageController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _userManager = userManager;
-            
+
             _context = context;
         }
         [AllowAnonymous]
         // GET: Instruments
         public async Task<IActionResult> Index()
         {
-            
-            
+
+
             ApplicationUser applicationUser = await _userManager.GetUserAsync(User);
             //Logik der tilgår databasen og finder instrumenter der tilhører denne bruger
             var user = from x in _context.ApplicationUser.Include(x => x.UserInstruments)
                         .ThenInclude(y => y.Instrument).Include(x => x.UserInstruments)
                         .ThenInclude(y => y.UserInstrumentGenres).ThenInclude(y => y.Genre)
-                        .Include(a => a.OwnedEnsembles) where x.Id == applicationUser.Id
-                        select x;
-        
+                        .Include(a => a.OwnedEnsembles)
+                       where x.Id == applicationUser.Id
+                       select x;
+
             var OURuser = await user.ToListAsync();
             return View(OURuser);
         }
-        public async Task<IActionResult> AddInstrument(){
+        public async Task<IActionResult> AddInstrument()
+        {
             ApplicationUser applicationUser = await _userManager.GetUserAsync(User);
             /* IQueryable<Instrument> qInstrumentList = from m in _context.Instruments
                                                  orderby m.Name
@@ -53,15 +55,15 @@ namespace MusicDating.Controllers
                 ApplicationUser = applicationUser,
                 Genres = new SelectList(_context.Genres, "GenreId", "GenreName"),
                 Instruments = new SelectList(_context.Instruments, "InstrumentId", "Name")
-                
-        };
+
+            };
             return View(AddInstrumentProfilePageVm);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddInstrument(int level, IEnumerable<int> genres, int instrument)
         {
-           
+
             ApplicationUser applicationUser = await _userManager.GetUserAsync(User);
             UserInstrument userInstrument = new UserInstrument();
             userInstrument.Id = applicationUser.Id;
@@ -81,7 +83,7 @@ namespace MusicDating.Controllers
         }
         public async Task<IActionResult> CreateEnsemble()
         {
-            
+
             ApplicationUser applicationUser = await _userManager.GetUserAsync(User);
             var createEnsembleVm = new CreateEnsembleVm()
             {
@@ -94,16 +96,17 @@ namespace MusicDating.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateEnsemble(IEnumerable<int> genres, string EnsembleName, string EnsembleDescription)
         {
-            if(!genres.Any()){
+            if (!genres.Any())
+            {
                 ModelState.AddModelError("Checkbox", "No Genres associated!");
                 //return RedirectToAction(nameof(CreateEnsemble));
-                    var createEnsembleVm = new CreateEnsembleVm()
-                    {
-                        Genres = new SelectList(_context.Genres, "GenreId", "GenreName")
-                    };
-                    return View(createEnsembleVm);
+                var createEnsembleVm = new CreateEnsembleVm()
+                {
+                    Genres = new SelectList(_context.Genres, "GenreId", "GenreName")
+                };
+                return View(createEnsembleVm);
             }
-            
+
             ApplicationUser applicationUser = await _userManager.GetUserAsync(User);
             Ensemble ensemble = new Ensemble();
             ensemble.Id = applicationUser.Id;
@@ -118,12 +121,12 @@ namespace MusicDating.Controllers
             {
                 ModelState.AddModelError("Unique", "Ensemble already exist with this name!");
                 var createEnsembleVm = new CreateEnsembleVm()
-                    {
-                        Genres = new SelectList(_context.Genres, "GenreId", "GenreName")
-                    };
+                {
+                    Genres = new SelectList(_context.Genres, "GenreId", "GenreName")
+                };
                 return View(createEnsembleVm);
             }
-            
+
             foreach (var item in genres)
             {
                 GenreEnsemble genreEnsemble = new GenreEnsemble();
@@ -134,13 +137,13 @@ namespace MusicDating.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        
+
         public async Task<IActionResult> EditEnsemble(int? id)
-         {
-             if (id == null)
-             {
-                 return NotFound();
-             }
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
             var ensemble = await _context.Ensembles
                  .FirstOrDefaultAsync(m => m.EnsembleId == id);
@@ -156,139 +159,12 @@ namespace MusicDating.Controllers
             };
 
             if (ensemble == null)
-             {
-                 return NotFound();
-             }
-
-             return View(editEnsemblevm);
-         } 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditEnsemble(int id,IEnumerable<int> genres, string EnsembleName, string EnsembleDescription)
-        {
-            Ensemble ensemble = new Ensemble();
-            
-            ensemble.EnsembleName = EnsembleName;
-            ensemble.EnsembleDescription = EnsembleDescription;
-            _context.Update(ensemble);
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(instrument);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!InstrumentExists(instrument.InstrumentId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(instrument);
-        }
-        // GET: Instruments/Create
-        /* public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Instruments/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-       
-
-        // GET: Instruments/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
             {
                 return NotFound();
             }
 
-            var instrument = await _context.Instruments.FindAsync(id);
-            if (instrument == null)
-            {
-                return NotFound();
-            }
-            return View(instrument);
+            return View(editEnsemblevm);
         }
-
-        // POST: Instruments/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("InstrumentId,Name")] Instrument instrument)
-        {
-            if (id != instrument.InstrumentId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(instrument);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!InstrumentExists(instrument.InstrumentId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(instrument);
-        }
-
-        // GET: Instruments/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var instrument = await _context.Instruments
-                .FirstOrDefaultAsync(m => m.InstrumentId == id);
-            if (instrument == null)
-            {
-                return NotFound();
-            }
-
-            return View(instrument);
-        }
-
-        // POST: Instruments/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var instrument = await _context.Instruments.FindAsync(id);
-            _context.Instruments.Remove(instrument);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool InstrumentExists(int id)
-        {
-            return _context.Instruments.Any(e => e.InstrumentId == id);
-        }
-    } */
+        
     }
 }
