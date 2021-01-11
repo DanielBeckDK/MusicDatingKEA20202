@@ -5,17 +5,17 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="page-title">Find musiker</div>
+<div class="page-title">Find Musician</div>
 
 @using (Html.BeginForm("Index", "ApplicationUser", FormMethod.Post))
 { 
 <div class="form-group">
-    <select asp-for="InstrumentName" class ="form-control" asp-items="Model.Instruments" onchange="this.form.submit()">
+    <select asp-for="InstrumentName" class ="form-control inputField" asp-items="Model.Instruments" onchange="this.form.submit()">
         <option value="">Select instrument</option>
     </select>
 </div>
 <div class="form-group">
-    <select asp-for="GenreName" class ="form-control" asp-items="Model.Genres" onchange="this.form.submit()">
+    <select asp-for="GenreName" class ="form-control inputField" asp-items="Model.Genres" onchange="this.form.submit()">
         <option value="">Select genre</option>
     </select>
 </div>
@@ -31,15 +31,15 @@
                     <h5 class="card-title">
                         @item.FirstName @item.LastName
                     </h5>
-                    <a href="#" class="btn btn-secondary">Vis profil</a>
+                    <a href="#" class="btn btn-secondary profileBtn">Show Profile</a>
                 </div>
                 <div class="card-text">
                     @foreach (var userInstrument in item.UserInstruments){
-                    <div class="d-flex justify-content-between">
-                        <h5 class="">@userInstrument.Instrument.Name</h5>
+                    <div class="d-flex justify-content-between dick-flex">
+                        <h5 class="instrumentName">@userInstrument.Instrument.Name</h5>
                         <div class="">
                             <div>
-                                <h6>Erfaring <span class="badge badge-primary">@userInstrument.Level</span></h6>
+                                <h6>Experience <span class=" badge badge-primary">@userInstrument.Level</span></h6>
                             </div>
                         </div>
                     </div>

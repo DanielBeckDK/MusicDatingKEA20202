@@ -9,7 +9,7 @@ using MusicDating.Data;
 namespace MusicDating.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201207103827_X")]
+    [Migration("20210109104130_X")]
     partial class X
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -257,65 +257,26 @@ namespace MusicDating.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2bb064dc-c8bd-4750-be78-73bfa8815aba",
+                            ConcurrencyStamp = "31a9a4be-f66b-4e4f-be8a-8a2b685478d9",
                             EmailConfirmed = false,
                             FirstName = "Daniel",
                             LastName = "Beck",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8e275e23-b28b-41a0-b6c7-710b70fe5f9a",
+                            SecurityStamp = "5b1243f3-1494-4cc8-96a5-f07ddf5bf889",
                             TwoFactorEnabled = false
                         },
                         new
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "030b11b4-15cd-4f96-bf97-a77c1daf4200",
+                            ConcurrencyStamp = "8ded9258-4bef-4e70-bf7e-81984917d204",
                             EmailConfirmed = false,
                             FirstName = "Christian",
                             LastName = "1",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0a434ece-1dad-4d0d-8f0d-0f09c9a90222",
-                            TwoFactorEnabled = false
-                        },
-                        new
-                        {
-                            Id = "4",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "9a507fc3-a93d-489a-be0f-07e28b663067",
-                            EmailConfirmed = false,
-                            FirstName = "Christian",
-                            LastName = "2",
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "e87294cb-a22b-4767-a64f-a6dd5af29a90",
-                            TwoFactorEnabled = false
-                        },
-                        new
-                        {
-                            Id = "5",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "349b8ef5-c4c5-475d-92fc-fa750966286b",
-                            EmailConfirmed = false,
-                            FirstName = "Christian",
-                            LastName = "3",
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "81e691ad-db17-4e99-ae6d-0c8f4fc76e7b",
-                            TwoFactorEnabled = false
-                        },
-                        new
-                        {
-                            Id = "6",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "cc24c552-7abd-46c2-8198-8546c65f3c66",
-                            EmailConfirmed = false,
-                            FirstName = "Christian",
-                            LastName = "4",
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "07250f3e-8908-45a1-abf1-7d421abb8b76",
+                            SecurityStamp = "c36601ba-d0bc-432c-be46-9640c56fc740",
                             TwoFactorEnabled = false
                         });
                 });

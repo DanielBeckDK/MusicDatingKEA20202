@@ -329,27 +329,12 @@ namespace MusicDating.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "2", 0, "2bb064dc-c8bd-4750-be78-73bfa8815aba", null, false, "Daniel", "Beck", false, null, null, null, null, null, false, "8e275e23-b28b-41a0-b6c7-710b70fe5f9a", false, null });
+                values: new object[] { "2", 0, "31a9a4be-f66b-4e4f-be8a-8a2b685478d9", null, false, "Daniel", "Beck", false, null, null, null, null, null, false, "5b1243f3-1494-4cc8-96a5-f07ddf5bf889", false, null });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "3", 0, "030b11b4-15cd-4f96-bf97-a77c1daf4200", null, false, "Christian", "1", false, null, null, null, null, null, false, "0a434ece-1dad-4d0d-8f0d-0f09c9a90222", false, null });
-
-            migrationBuilder.InsertData(
-                table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "4", 0, "9a507fc3-a93d-489a-be0f-07e28b663067", null, false, "Christian", "2", false, null, null, null, null, null, false, "e87294cb-a22b-4767-a64f-a6dd5af29a90", false, null });
-
-            migrationBuilder.InsertData(
-                table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "5", 0, "349b8ef5-c4c5-475d-92fc-fa750966286b", null, false, "Christian", "3", false, null, null, null, null, null, false, "81e691ad-db17-4e99-ae6d-0c8f4fc76e7b", false, null });
-
-            migrationBuilder.InsertData(
-                table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "6", 0, "cc24c552-7abd-46c2-8198-8546c65f3c66", null, false, "Christian", "4", false, null, null, null, null, null, false, "07250f3e-8908-45a1-abf1-7d421abb8b76", false, null });
+                values: new object[] { "3", 0, "8ded9258-4bef-4e70-bf7e-81984917d204", null, false, "Christian", "1", false, null, null, null, null, null, false, "c36601ba-d0bc-432c-be46-9640c56fc740", false, null });
 
             migrationBuilder.InsertData(
                 table: "Genres",
